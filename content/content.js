@@ -86,7 +86,7 @@ function getTextFromChat(chatMessages, title) {
       let messageText = message.querySelector('.whitespace-pre-wrap').innerHTML;
       const sender = message.querySelector('img') ? 'You' : 'ChatGPT';
 
-      messageText = messageText.replace(/_/gs, "\_")   // replaces all underscores with an escaped underscore.
+      messageText = messageText.replace(/_/gs, "\_")    // replaces all underscores with an escaped underscore.
                                 .replace(/\*/gs, "\*")  // replaces all asterisks with an escaped asterisk.
                                 .replace(/\^/gs, "\^")  // replaces all carets with an escaped caret.
                                 .replace(/~/gs, "\~")   // replaces all tildes with an escaped tilde.
@@ -94,12 +94,12 @@ function getTextFromChat(chatMessages, title) {
                                 .replace(/>/gs, "\>")   // replaces all greater-than symbols with an escaped greater-than symbol.
                                 .replace(/\|/gs, "\|"); // replaces all vertical bars with an escaped vertical bar.
 
-      messageText = messageText.replace(/<p>(.*?)<\/p>/g, function (pTag, innerText) { 	// Replace all <p> tags with newlines.
-        return '\n' + innerText.replace(/<b>(.*?)<\/b>/g, '**$1**') 										// Replace all <b> tags with **.
-                                .replace(/<\/?b>/g, "**") 															// Replace all <b> and </b> tags with **.
-                                .replace(/<\/?i>/g, "_") 																// Replace all <i> tags with underscores
-                                .replace(/<code>/g, " `") 															// Replace all occurences of "<code>" with " `"
-                                .replace(/<\/code>/g, "` ") + '\n'; 										// Replace all occurences of "</code>" with "` " and add a newline.
+      messageText = messageText.replace(/<p>(.*?)<\/p>/g, function (pTag, innerText) {  // Replace all <p> tags with newlines.
+        return '\n' + innerText.replace(/<b>(.*?)<\/b>/g, '**$1**')                     // Replace all <b> tags with **.
+                                .replace(/<\/?b>/g, "**")                               // Replace all <b> and </b> tags with **.
+                                .replace(/<\/?i>/g, "_")                                // Replace all <i> tags with underscores
+                                .replace(/<code>/g, " `")                               // Replace all occurences of "<code>" with " `"
+                                .replace(/<\/code>/g, "` ") + '\n';                     // Replace all occurences of "</code>" with "` " and add a newline.
       });
 
       const messageSeparator = iteration === 0 ? '' : '***\n\n';
@@ -168,12 +168,12 @@ function normalizeMarkdownContent(markdownContent) {
  * @returns {string} The cleaned markdown content.
  */
 function removeMarkdownTags(markdownContent) {
-  const newmarkdownContentFormated = markdownContent.replace(/<div class="markdown prose w-full break-words (?:dark|light):prose-invert (?:dark|light)">/gs, "") 	// Remove the first <div> tag.
-                                                    .replace(/\r?\n?<\/div>\r?\n?/gs, "\n") 																																			// Remove the last <div> tag.
-                                                    .replace(/\*\*ChatGPT:\*\* <(ol|ul)/gs, "**ChatGPT:**\n<$1") 																									// Remove the <br> tag that is left over after the <pre> tags are removed.
-                                                    .replace(/&gt;/gs, ">") 																																											// Replace all &gt; with >
-                                                    .replace(/&lt;/gs, "<") 																																											// Replace all &lt; with <
-                                                    .replace(/&amp;/gs, "&"); 																																										// Replace all &amp; with &
+  const newmarkdownContentFormated = markdownContent.replace(/<div class="markdown prose w-full break-words (?:dark|light):prose-invert (?:dark|light)">/gs, "")  // Remove the first <div> tag.
+                                                    .replace(/\r?\n?<\/div>\r?\n?/gs, "\n")                                                                       // Remove the last <div> tag.
+                                                    .replace(/\*\*ChatGPT:\*\* <(ol|ul)/gs, "**ChatGPT:**\n<$1")                                                  // Remove the <br> tag that is left over after the <pre> tags are removed.
+                                                    .replace(/&gt;/gs, ">")                                                                                       // Replace all &gt; with >
+                                                    .replace(/&lt;/gs, "<")                                                                                       // Replace all &lt; with <
+                                                    .replace(/&amp;/gs, "&");                                                                                     // Replace all &amp; with &
   return newmarkdownContentFormated;
 }
 
