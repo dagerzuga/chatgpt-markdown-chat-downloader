@@ -151,11 +151,11 @@ function convertHtmlCodeBlocksToMarkdown(markdownContent) {
  */
 function normalizeMarkdownContent(markdownContent) {
   const newmarkdownContentFormated = markdownContent.replace(/<p>(.*?)<\/p>/g, function (htmlTag, innerText) {
-    return '\n' + innerText.replace(/<b>(.*?)<\/b>/g, '**$1**') 	// Replace all <b> tags with **.
-                            .replace(/<\/?b>/g, "**")  						// Replace all <b> and </b> tags with **.
-                            .replace(/<\/?i>/g, "_")   						// Replace all <i> tags with underscores
-                            .replace(/<code>/g, " `")   					// Replace all occurences of "<code>" with " `"
-                            .replace(/<\/code>/g, "` ") + '\n';	 	// Replace all occurences of "</code>" with "` " and add a newline.
+    return '\n' + innerText.replace(/<b>(.*?)<\/b>/g, '**$1**')     // Replace all <b> tags with **.
+                            .replace(/<\/?b>/g, "**")               // Replace all <b> and </b> tags with **.
+                            .replace(/<\/?i>/g, "_")                // Replace all <i> tags with underscores
+                            .replace(/<code>/g, " `")               // Replace all occurences of "<code>" with " `"
+                            .replace(/<\/code>/g, "` ") + '\n';     // Replace all occurences of "</code>" with "` " and add a newline.
   });
 
   return newmarkdownContentFormated;
