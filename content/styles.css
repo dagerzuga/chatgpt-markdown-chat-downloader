@@ -1,0 +1,49 @@
+/* ****************************************** */
+/* Button to download the chat */
+/* ****************************************** */
+.gpt-downloader-button {
+  position: fixed;
+  right: 15px; /* arbitrary value to place the button at the right of the screen */
+  top: 50px; /* arbitrary value to place the button at the bottom of the screen */
+  padding: 10px;
+  background: #3E3F4B; /* ChatGPT's default background color */
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2147483647; /* Max Z-index value possible */
+}
+
+.gpt-downloader-button:hover {
+  background-color: #202123; /* ChatGPT's default background color for the hover state */
+}
+
+@media (min-width: 768px) {
+  .gpt-downloader-button {
+    top: 10px;
+  }
+}
+
+/* ****************************************** */
+/* Error notification */
+/* ****************************************** */
+.gpt-downloader-button.error {
+  background: #FA4031;
+  top: 100px; /* arbitrary value to place the button at the top of the screen but below the button to download the chat. */
+  right: -500px; /* arbitary value to hide the button */
+  transition: right 1.5s ease;
+}
+
+.gpt-downloader-button.error.visible {
+  right: 15px;
+}
+
+.gpt-downloader-button.error:hover {
+  background-color: #D32F2F;
+}
+
+@media (min-width: 768px) {
+  .gpt-downloader-button.error {
+    top: 65px;
+  }
+}

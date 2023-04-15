@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT markdown chat downloader",
+  "version": "1.0.0",
+  "description": "Download ChatGPT chats in markdown format with ease using the ChatGPT Markdown Chat Downloader Chrome extension",
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/",
+        "https://chat.openai.com/*"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "css": [
+        "content/styles.css"
+      ]
+    }
+  ]
+}
